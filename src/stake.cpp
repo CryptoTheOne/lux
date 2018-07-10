@@ -822,8 +822,8 @@ bool Stake::CreateCoinStake(CWallet* wallet, const CKeyStore& keystore, unsigned
         if (fDebug) LogPrintf("%s: Masternode payment to %s (pos)\n", __func__, EncodeDestination(txDest));
     }
 
-    int64_t blockValue = nCredit;
-    int64_t masternodePayment = GetMasternodePayment(chainActive.Height() + 1, nReward);
+    CAmount blockValue = nCredit;
+    CAmount masternodePayment = GetMasternodePosReward(chainActive.Height() + 1, nReward);
 
     // Set output amount
     if (hasMasternodePayment) {
